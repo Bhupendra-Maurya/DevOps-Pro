@@ -16,7 +16,7 @@ mysql = MySQL(app)
 @app.route('/')
 def hello():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT  username,roll_number,course,phone_number FROM messages')
+    # cur.execute('SELECT  username,roll_number,course,phone_number FROM messages')
     messages = cur.fetchall()
     cur.close()
     return render_template('index.html', messages=messages)
