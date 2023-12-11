@@ -28,7 +28,7 @@ def submit():
     course = request.form.get('course')
     phone_number = request.form.get('phone_number')
     cur = mysql.connection.cursor()
-    cur.execute('INSERT INTO messages (message) VALUES (%s,%s,%s,%s)', [username,roll_number,course,phone_number])
+    cur.execute('INSERT INTO messages (username,roll_number,course,phone_number) VALUES (%s,%s,%s,%s)', [username,roll_number,course,phone_number])
     mysql.connection.commit()
     cur.close()
     return redirect(url_for('hello'))
