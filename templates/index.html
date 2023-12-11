@@ -92,11 +92,15 @@
 </head>
 <body>
      <div class="container">
-        <h1>Welcome, Enter your details here</h1>
-        <p>Username: {{ messages[0][0] }}</p>
-        <p>Roll Number: {{ messages[0][1] }}</p>
-        <p>Course: {{ messages[0][2] }}</p>
-        <p>Phone Number: {{ messages[0][3] }}</p>
+	 <h1>Welcome, 
+            Please add your messages here! </h1>
+        {% for message in messages %}
+            <p>{{ message[0] }}</p>
+	    <p>{{ message[1] }}</p>
+	    <p>{{ messsage[2] }}</p>
+	    <p>{{ messsage[3] }}</p>
+        {% endfor %}
+
         <form action="/submit" method="post">
             <input type="text" name="username" placeholder="Enter your name">
             <input type="text" name="roll_number" placeholder="Enter your roll number">

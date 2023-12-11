@@ -23,9 +23,12 @@ def hello():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    new_message = request.form.get('new_message')
+    username = request.form.get('username')
+    roll_number=request.form.get('roll_number')
+    course = request.form.get('course')
+    phone_number = request.form.get('phone_number')
     cur = mysql.connection.cursor()
-    cur.execute('INSERT INTO messages (message) VALUES (%s)', [new_message])
+    cur.execute('INSERT INTO messages (message) VALUES (%s,%s,%s,%s)', [username,roll_number,course,phone_number])
     mysql.connection.commit()
     cur.close()
     return redirect(url_for('hello'))
